@@ -2,7 +2,7 @@ const express = require("express");
 const { instrument } = require("@socket.io/admin-ui");
 const io = require("socket.io")(4001, {
   cors: {
-    origin: ["http://localhost:3000", "https://admin.socket.io"],
+    origin: "*",
   },
 });
 const mongoose = require("mongoose");
@@ -47,7 +47,6 @@ app.use(
 );
 app.use(helmet());
 
-const PORT = process.env.PORT || 4000;
 const userNotification = io.of("/notification");
 userNotification.on("connection", (socket) => {
   // console.log("1", socket.id);
@@ -91,5 +90,5 @@ app.use("/api/upload", uploadRouter.routes);
 app.use("/filemanager", express.static(path.join(__dirname, "uploads")));
 
 instrument(io, { auth: false });
-
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

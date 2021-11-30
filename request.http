@@ -1,0 +1,31 @@
+
+ POST http://localhost:4000/api/post
+ Content-Type: application/json
+ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTM2NjEzMTcyOTE1MjY5MjMwNmIzOTMiLCJleHBpcmVkIjoiMjAyMS0wOS0xMVQwNDoyMzoyMC43MDJaIiwiaWF0IjoxNjMxMDc1MDAwfQ.jx2U0zUKH9ypOBYcUOtv0sWRpSqXd5OmhvevqF-pFlc
+
+{
+    "title":"2343453234",
+     "description":"ssss",
+     "status":"2"
+}
+
+
+# POST http://localhost:4000/api/auth/login
+# Content-Type: application/json
+
+# {
+#     "username":"ADMIN",
+#     "password":"12345"
+# }
+
+
+
+# POST http://localhost:4000/api/auth/register
+# Content-Type: application/json
+
+# {
+#     "username":"ADMIN",
+#     "password":"12345",
+#     "email":"hai"
+# }
+

@@ -1,17 +1,28 @@
 const express = require("express");
+const { instrument } = require("@socket.io/admin-ui");
+const io = require("socket.io")(4001, {
+  cors: {
+    origin: "*",
+  }, 
+});
 const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/post");
+const commentRouter = require("./routes/comment");
+const usersRouter = require("./routes/users");
+const usersNotificationRouter = require("./routes/userNotification");
 const uploadRouter = require("./routes/upload");
+const groupRouter = require("./routes/group");
 const helmet = require("helmet");
 const path = require("path");
 const cors = require("cors");
 require("dotenv").config();
+
 const connectDB = async () => {
   try {
     await mongoose.connect(
       `mongodb+srv://admin:12345@cluster0.mkhxv.mongodb.net/SocialNetWork?retryWrites=true&w=majority`,
-      (err) => { 
+      (err) => {
         if (err) throw err;
         console.log("connected to MongoDB");
       }
@@ -26,20 +37,13 @@ connectDB();
 
 const app = express();
 
-app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-    methods: ["POST", "GET", "PUT", "DELETE"],
+    origin: "*",
   })
 );
 app.use(helmet());
-app.use("/api/auth", authRouter);
-app.use("/api/post", postRouter);
-app.use("/api/upload", uploadRouter.routes);
-app.use("/filemanager", express.static(path.join(__dirname, "uploads")));
 
-const PORT = process.env.PORT || 4000;
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

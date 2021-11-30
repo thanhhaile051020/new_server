@@ -22,8 +22,6 @@
     "gridfs-stream": "^1.1.1",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
-    "koa": "^2.13.4",
-    "koa-mongoose-erd-generator": "0.0.7",
     "moment": "^2.29.1",
     "mongoose": "^6.0.3",
     "mongoose-erd": "^1.0.1",

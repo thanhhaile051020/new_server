@@ -3,7 +3,7 @@ const { instrument } = require("@socket.io/admin-ui");
 const io = require("socket.io")(4001, {
   cors: {
     origin: "*",
-  },
+  }, 
 });
 const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");

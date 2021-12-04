@@ -1,5 +1,5 @@
 const Post = require("../models/Post");
-const Comment = require("../models/Comment");
+const Comment = require("../models/comment");
 const UserNotification = require("../models/UserNotification");
 const { ObjectId } = require("mongodb");
 const express = require("express");
@@ -13,6 +13,7 @@ const {
   getAllMultiFiles,
 } = require("../controllers/upload");
 const { error500, error400 } = require("../util/res");
+const comment = require("../models/comment");
 router.get("/", verifyToken, async (req, res) => {
   try {
     const { postId, index, pageSize } = req.query;

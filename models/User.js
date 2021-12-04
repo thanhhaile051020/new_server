@@ -82,6 +82,10 @@ const UserSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    status:{
+      type:Number,
+      default:1
+    }
   },
   { timestamps: true }
 );

@@ -69,6 +69,7 @@ router.post("/login", async (req, res) => {
     const date = new Date();
     date.setDate(date.getDate() + 300000);
     const accessToken = jwt.sign({ userId: user._id, expired: date }, "secret");
+
     res.json({
       success: true,
       message: "Login successfully",
